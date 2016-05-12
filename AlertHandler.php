@@ -5,8 +5,7 @@ $action = $_GET["action"];
 
 $dao = new BrandTrackDao();
 
-if ($action == "Alert")
-{
+if ($action == "Alert") {
     $brandId = $_GET["brandId"];
     $alertAndRun = $dao->getLastAlertAndRunTimeByBrandId($brandId);
     $ret = array(
@@ -16,11 +15,9 @@ if ($action == "Alert")
             );
     echo json_encode($ret);
 }
-else if ($action == "AlertDetail")
-{
+else if ($action == "AlertDetail") {
     $alertId = $_GET["alertId"];
     $alertApps = $dao->getUserAlertAppsByAlertId($alertId);
     
     echo json_encode($alertApps);
 }
-

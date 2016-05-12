@@ -41,8 +41,7 @@ SQL;
         return $q->fetch();
     }
     
-    public function getUserAlertAppsByAlertId($alertId)
-    {
+    public function getUserAlertAppsByAlertId($alertId) {
         $conn = $this->getConnection();
         $getQuery = "SELECT app_url, status FROM user_brand_alert_apps WHERE alert_id = :alert_id";
         $q = $conn->prepare($getQuery);
