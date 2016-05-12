@@ -1,0 +1,11 @@
+
+.alert_table {
+    display: none;
+    width: 80%;
+    margin: 0 auto;
+    float: none;
+}
+
+.title {
+    padding-left: 20px;
+}
