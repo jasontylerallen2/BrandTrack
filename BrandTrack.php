@@ -34,7 +34,6 @@
                 <tbody>
                 <?php
                     $brands = $dao->getBrandsByClientParentId(0);
-                    $brandRowPos = 0;
                     
                     foreach ($brands as $brand) {
 
@@ -64,7 +63,6 @@
                             </tr>
 HTML;
                         echo $overviewHTML;
-                        $brandRowPos++;
                     }
                 ?>
                 </tbody>
