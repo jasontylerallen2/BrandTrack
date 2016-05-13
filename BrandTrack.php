@@ -41,7 +41,7 @@
 
                         $alertAndRun = $dao->getLastAlertAndRunTimeByBrandId($brand['brand_id']);
                         $runDate = $alertAndRun['run_date'];
-                        $formattedDate = $newDate = date("m/d/yy h:i:s", strtotime($runDate));
+                        $formattedDate = $newDate = date("m/d/Y h:i:s", strtotime($runDate));
                         
                         $appsAdded = $alertAndRun['apps_added_num'];
                         $appsRemoved = $alertAndRun['apps_removed_num'];
