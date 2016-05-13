@@ -1,7 +1,7 @@
 
 $(function() {
     
-    $( ".brand_link" ).click(function() {
+    $( document ).on( "click", '.brand_link', function() {
         
         var brandId = this.id.match(/\d+/)[0];
         var brandName = $(this).text();
@@ -29,8 +29,8 @@ $(function() {
                     
                     $("#alert_table").append(
                         "<tr>" + 
-                            "<td>" + entry.alert_id + "</td>" +
-                            "<td>" + entry.run_date.replace(/-/g, '/') + "</td>" +
+                            "<td><button type='button' id='alert_link_" + entry.alert_id + "' class='btn btn-link alert_link'>" + entry.alert_id + "</button></td>" +
+                            "<td class='detail_date'>" + entry.run_date.replace(/-/g, '/') + "</td>" +
                             "<td>" + entry.total_apps + "</td>" +
                         "</tr>"
                     );
@@ -45,11 +45,11 @@ $(function() {
       
     });
     
-    $( ".alert_link" ).click(function() {
+    $( document ).on( "click", '.alert_link', function() {
         
         var alertId = this.id.match(/\d+/)[0];
-        var alertDate = $(this).text();
-        var brandName = $(this).closest('tr').find('.brand_link').text();
+        var brandHeader = $("#alert_and_detail_content_header").text();
+        var alertDate = $(this).closest('tr').find('.detail_date').text();
         
         $.ajax({
             type: "GET",
@@ -60,7 +60,7 @@ $(function() {
                 
                 $("#alert_table").empty();
                 $("#alert_table").show();
-                $("#alert_and_detail_content_header").html("Brand: " + brandName + "<br>" + "Date: " + alertDate);
+                $("#alert_and_detail_content_header").html(brandHeader + "<br>" + "Date: " + alertDate);
                 $("#alert_table").show();
                 
                 $("#alert_table").append(

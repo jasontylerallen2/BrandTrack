@@ -5,7 +5,7 @@ class BrandTrackDao {
     private $host = "localhost";
     private $db = "brandwatch";
     private $user = "jallen";
-    private $pass = "password";
+    private $pass = "Goodnews2b";
 
     public function getConnection() {
         return new PDO("mysql:host={$this->host};dbname={$this->db}", $this->user, $this->pass);

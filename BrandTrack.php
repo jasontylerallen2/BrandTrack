@@ -55,7 +55,7 @@
                             <tr>
                                 <td>{$clientName}</td>
                                 <td><button type="button" id="brand_link_{$brand['brand_id']}" class="btn btn-link brand_link">{$brandName}</button></td>
-                                <td><button type="button" id="alert_link_{$alertAndRun['alert_id']}" class="btn btn-link alert_link">{$formattedDate}</button></td>
+                                <td>{$formattedDate}</td>
                                 <td>{$runDurationMinutes} min</td>
                                 <td>{$appsAdded}</td>
                                 <td>{$appsRemoved}</td>
