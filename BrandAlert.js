@@ -15,7 +15,6 @@ $(function() {
                 $("#alert_table").empty();
                 $("#alert_table").show();
                 $("#alert_and_detail_content_header").html("Brand: " + brandName);   
-                $("#alert_table").show();
                 
                 $("#alert_table").append(
                         "<tr>" +
@@ -61,7 +60,6 @@ $(function() {
                 $("#alert_table").empty();
                 $("#alert_table").show();
                 $("#alert_and_detail_content_header").html(brandHeader + "<br>" + "Date: " + alertDate);
-                $("#alert_table").show();
                 
                 $("#alert_table").append(
                     "<tr>" +
