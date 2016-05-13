@@ -14,21 +14,29 @@ $(function() {
                 var data = $.parseJSON(response);
                 $("#alert_table").empty();
                 $("#alert_table").show();
-                $("#alert_and_detail_content_header").html("Brand: " + brandName);
-                
+                $("#alert_and_detail_content_header").html("Brand: " + brandName);   
                 $("#alert_table").show();
+                
                 $("#alert_table").append(
                         "<tr>" +
                             "<th>Alert ID</th>" +
                             "<th>Date/Time</th>" +
                             "<th># Apps</th>" +
-                         "</tr>" +
+                         "</tr>"
+                 );
+                
+                data.forEach(function(entry) {
+                    
+                    $("#alert_table").append(
                         "<tr>" + 
-                            "<td>" + data.alertId + "</td>" +
-                            "<td>" + data.date + "</td>" +
-                            "<td>" + data.numApps + "</td>" +
+                            "<td>" + entry.alert_id + "</td>" +
+                            "<td>" + entry.run_date.replace(/-/g, '/') + "</td>" +
+                            "<td>" + entry.total_apps + "</td>" +
                         "</tr>"
-                );
+                    );
+                    
+                });
+                
             },
             error: function (xhr) {
                 alert("Could not load brand alert.");

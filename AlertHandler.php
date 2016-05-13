@@ -7,13 +7,11 @@ $dao = new BrandTrackDao();
 
 if ($action == "Alert") {
     $brandId = $_GET["brandId"];
-    $alertAndRun = $dao->getLastAlertAndRunTimeByBrandId($brandId);
-    $ret = array(
-                "alertId" => $alertAndRun['alert_id'],
-                 "date" => $alertAndRun['run_date'],
-                 "numApps" => $alertAndRun['total_apps']
-            );
-    echo json_encode($ret);
+    $alerts = $dao->getUserBrandAlertsByBrandId($brandId);
+    foreach ($alerts as $alert) {
+        $alert['run_date'] = date("m/d/Y h:i:s", strtotime($alert['run_date']));
+    }
+    echo json_encode($alerts);
 }
 else if ($action == "AlertDetail") {
     $alertId = $_GET["alertId"];

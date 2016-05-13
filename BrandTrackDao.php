@@ -48,5 +48,13 @@ SQL;
         $q->execute(array(":alert_id" => $alertId));
         return $q->fetchAll();
     }
+    
+    public function getUserBrandAlertsByBrandId($brandId) {
+        $conn = $this->getConnection();
+        $getQuery = "SELECT alert_id, run_date, total_apps FROM user_brand_alert WHERE brand_id = :brand_id";
+        $q = $conn->prepare($getQuery);
+        $q->execute(array(":brand_id" => $brandId));
+        return $q->fetchAll();
+    }
 
 }
